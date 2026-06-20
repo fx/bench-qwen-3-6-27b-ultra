@@ -9,7 +9,7 @@
 
 Everything is fictional parody — but every interaction is built to feel completely real: real timing, real streaming output, real-looking UI.
 
-> **Status:** Scaffold complete. The project foundation (Go server, Vite/React SPA, CI) is in place. Feature work is in progress. See [`docs/`](docs/) for the living specifications and change documents that drive implementation.
+> **Status:** All 8 change documents (0001-0008) implemented. Landing page, demo board, issue detail, agent features, and agent roster are all shipped. See [`docs/`](docs/) for the living specifications and change documents that drive implementation.
 
 ---
 
@@ -33,43 +33,49 @@ The dev server runs on `http://localhost:8080` by default (override with `PORT`)
 - End-to-end hot reload: `bun run dev` starts both Vite and `air` through one port
 - GitHub Actions CI with Go tests (100% coverage), Vitest (100% coverage), and lint checks
 
----
-
-## What's planned
-
 ### Landing page (`/`)
 
-A single, polished scrolling page in the style of top-tier AI startup sites:
+A polished scrolling parody page with:
 
-- Sticky glass nav with a prominent **Demo** link to `/demo`
-- Hero with an animated product mock and parody tagline ("The world's first fully autonomous slop engine")
-- A bento grid of absurd "agentic" features (Agentic Slopflows, Hype Copilot, Autonomous Monetization Engine, Human-out-of-the-Loop Mode…)
-- "How it works" steps, an animated stats band (10× more slop per sprint, 0 developers required…), parody testimonials, pricing tiers (Hobby Slop → Pro Agentic → Enterprise Singularity), an FAQ, and a big closing call-to-action
-- Smooth scroll/entrance animations throughout, with full `prefers-reduced-motion` support
+- Sticky glass nav with **Demo** link, mobile menu
+- Hero with aurora background, terminal mock, dual CTAs
+- Bento grid of absurd "agentic" features
+- Animated stats band, parody testimonials, 3-tier pricing with monthly/annual toggle
+- Accordion FAQ, big closing call-to-action, footer with parody links
+- Smooth scroll/entrance animations with `prefers-reduced-motion` support
+
+### Design system
+
+- Two CSS-variable-based themes (marketing dark violet, Jira light blue)
+- `ThemeScope` component for theme switching
+- shadcn/ui-style button with variants
+- `FadeUp` and `CountUp` scroll-triggered animations
 
 ### The demo (`/demo`)
 
-A convincing Jira look-alike whose every feature is a joke:
+A convincing Jira clone with:
 
-- Faithful Jira chrome — top nav, collapsible sidebar, and a **Kanban board** (To Do / In Progress / In Review / Done) with draggable, richly-detailed issue cards
-- An **issue detail** view with status transitions, a details panel, and an activity feed
-- **"✨ Implement now with AI"** on every ticket — opens an agent panel that streams scripted, plausible implementation steps in real time and then "ships" the ticket
-- **Agentic Autopilot** — flip it on and watch tickets ship themselves
-- **Ask Rovo** — an AI command bar that answers any question with over-confident, citation-laden nonsense
-- A **Rovo Agents** roster of absurd hireable agents (Standup Bot, Scope Creep Detector, Blame Assigner, Velocity Inflator…)
-- AI-generate buttons that fill fields with bloated buzzword soup
+- Jira chrome — top nav, collapsible sidebar, **Kanban board** (To Do / In Progress / In Review / Done) with draggable issue cards
+- **Issue detail** modal — two-column layout (summary, status dropdown, description, activity feed + details panel)
+- Comment composer and activity feed with reverse-chronological ordering
+- Status transitions that sync between detail view and board
+- **"✨ Implement now with AI"** on every card — spawns a simulated streaming agent that walks through implementation steps and "ships" tickets to Done
+- **Agent terminal panel** with streaming text, step progress, cancel support, and completion side-effects (auto-move to Done + agent activity comment)
+- **Agentic Autopilot** toggle — autonomously ships tickets at timed intervals
+- **Ask Rovo** command bar — streams over-confident parody answers to any question
+- **Rovo Agents roster** — 6 absurd hireable AI agents with fake stats
 
 All demo data is mocked in the browser; the "AI" is a deterministic, scripted simulation (no real model, no network).
 
----
+### Tech stack
 
-## Planned tech stack
-
-- **Bun** + **TypeScript** + **React**
+- **Bun** + **TypeScript** + **React 19**
+- **React Router** (HashRouter) for `/` and `/demo` routes
 - **Motion** for animation
-- **shadcn/ui** (Tailwind CSS) for components
-- A single **Go** server serves the React SPA — embedded into the binary in production, and in development providing **full end-to-end hot reload** (Vite HMR for the frontend *and* Go auto-rebuild) through one port, in preparation for a real same-origin API
-- **100% test coverage** (Go + Vitest) enforced by **GitHub Actions CI** from the first commit
+- **shadcn/ui** (Tailwind CSS 3.4) for components
+- **Zustand** for demo state management
+- Single **Go** server with embedded SPA in production, reverse proxy to Vite in development
+- **Vitest + RTL** for frontend tests, **Go testing** for backend — coverage enforced in CI
 
 ---
 
