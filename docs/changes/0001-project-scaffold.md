@@ -5,7 +5,7 @@
 Scaffold the entire project: a single Go HTTP server that serves a Bun + TypeScript + React (Vite) SPA, with full end-to-end hot reload in development (Vite HMR + `air` Go reload through one port) and embedded static serving in production, plus a GitHub Actions CI pipeline enforcing 100% coverage from the first commit.
 
 **Spec:** [Architecture](../specs/architecture/)
-**Status:** draft
+**Status:** complete
 **Depends On:** —
 
 ## Motivation

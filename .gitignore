@@ -1,0 +1,28 @@
+# Binaries
+slop-sim
+slop-sim.exe
+
+# Go
+vendor/
+*.out
+coverage.out
+
+# Frontend
+web/node_modules/
+web/dist/
+web/.vite/
+web/coverage/
+web/tsconfig.tsbuildinfo
+web/bun.lock
+
+# Dev
+.air/
+tmp/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

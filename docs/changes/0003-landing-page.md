@@ -5,7 +5,7 @@
 Implement the full single-page parody marketing site at `/` for "Slop Simulator", with all eleven sections, ship-ready parody copy, Motion animations, responsive layout, and a prominent Demo CTA routing to `/demo`.
 
 **Spec:** [Landing Page](../specs/landing-page/)
-**Status:** draft
+**Status:** complete
 **Depends On:** 0002
 
 ## Motivation
