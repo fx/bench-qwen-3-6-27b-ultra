@@ -7,6 +7,7 @@ import (
 	"net"
 	"net/http"
 	"strings"
+	"sync"
 	"time"
 )
 
@@ -16,6 +17,7 @@ type Server struct {
 	fs      *embed.FS
 	devMode bool
 	srv     *http.Server
+	mu      sync.Mutex
 }
 
 // New creates a new Server instance.
@@ -50,20 +52,27 @@ func (s *Server) Serve() error {
 func (s *Server) ServeListener(lis net.Listener) error {
 	mux := s.setupRoutes()
 
-	s.srv = &http.Server{
+	srv := &http.Server{
 		Handler:      mux,
 		ReadTimeout:  15 * time.Second,
 		WriteTimeout: 15 * time.Second,
 		IdleTimeout:  60 * time.Second,
 	}
 
-	return s.srv.Serve(lis)
+	s.mu.Lock()
+	s.srv = srv
+	s.mu.Unlock()
+
+	return srv.Serve(lis)
 }
 
 // Close gracefully shuts down the server.
 func (s *Server) Close() error {
-	if s.srv != nil {
-		return s.srv.Close()
+	s.mu.Lock()
+	srv := s.srv
+	s.mu.Unlock()
+	if srv != nil {
+		return srv.Close()
 	}
 	return nil
 }
