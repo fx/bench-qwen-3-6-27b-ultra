@@ -9,7 +9,29 @@
 
 Everything is fictional parody — but every interaction is built to feel completely real: real timing, real streaming output, real-looking UI.
 
-> **Status:** Specification phase. This README describes the **planned** product. See [`docs/`](docs/) for the living specifications and change documents that drive implementation. As features ship, this README is updated to describe what actually exists.
+> **Status:** Scaffold complete. The project foundation (Go server, Vite/React SPA, CI) is in place. Feature work is in progress. See [`docs/`](docs/) for the living specifications and change documents that drive implementation.
+
+---
+
+## Quick start
+
+```bash
+bun install          # install dependencies
+bun run dev          # start dev server (Go + Vite HMR on :8080)
+bun run test:run     # run tests
+```
+
+The dev server runs on `http://localhost:8080` by default (override with `PORT`). Frontend changes hot-reload through Vite; Go changes auto-rebuild via `air`.
+
+---
+
+## What exists
+
+### Project scaffold
+
+- Single Go server (`main.go`) that serves the React SPA — embedded static in production, Vite reverse proxy in development
+- End-to-end hot reload: `bun run dev` starts both Vite and `air` through one port
+- GitHub Actions CI with Go tests (100% coverage), Vitest (100% coverage), and lint checks
 
 ---
 
