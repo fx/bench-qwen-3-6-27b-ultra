@@ -5,7 +5,7 @@
 Build the `/demo` application shell: the Jira-look-alike chrome (top nav, collapsible left sidebar, main content area), the demo route tree, the client-side state store, and the seeded mock dataset that later demo changes build on.
 
 **Spec:** [Demo Jira Clone](../specs/demo-jira-clone/)
-**Status:** draft
+**Status:** complete
 **Depends On:** 0002
 
 ## Motivation

@@ -5,7 +5,7 @@
 Implement the issue detail view opened from a board card: a two-column Jira-style layout (left content: summary, status dropdown, description, activity/comments; right Details panel) with status transitions that reflect on the board and a working (mock) comment composer.
 
 **Spec:** [Demo Jira Clone](../specs/demo-jira-clone/)
-**Status:** draft
+**Status:** complete
 **Depends On:** 0005
 
 ## Motivation

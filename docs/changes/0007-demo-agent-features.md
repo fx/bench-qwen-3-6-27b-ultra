@@ -5,7 +5,7 @@
 Implement the demo's core parody: the "✨ Implement now with AI" simulated streaming agent that "ships" tickets, plus the supporting AI gags — Agentic Autopilot, Ask Rovo command bar, AI-generate field buttons, the Rovo Agents roster, and agent activity/comments.
 
 **Spec:** [Demo Jira Clone](../specs/demo-jira-clone/)
-**Status:** draft
+**Status:** complete
 **Depends On:** 0005, 0006
 
 ## Motivation

@@ -5,7 +5,7 @@
 Implement the demo's primary view: a Jira-style Kanban board with four columns (To Do / In Progress / In Review / Done), richly-detailed draggable issue cards, live column counts, and status transitions on drop.
 
 **Spec:** [Demo Jira Clone](../specs/demo-jira-clone/)
-**Status:** draft
+**Status:** complete
 **Depends On:** 0004
 
 ## Motivation

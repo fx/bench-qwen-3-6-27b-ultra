@@ -5,7 +5,7 @@
 Establish the shared UI foundation: Tailwind CSS, shadcn/ui primitives, the font program, the two scoped themes (marketing dark + Jira light), and the centralized Motion animation primitives with global `prefers-reduced-motion` handling.
 
 **Spec:** [Design System](../specs/design-system/)
-**Status:** draft
+**Status:** complete
 **Depends On:** 0001
 
 ## Motivation
