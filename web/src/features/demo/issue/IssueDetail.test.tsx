@@ -8,7 +8,7 @@ import { CommentComposer } from './CommentComposer';
 import { DetailsPanel } from './DetailsPanel';
 import { formatRelative, setMockNow, resetMockNow } from './timeUtils';
 
-function wrap(ui: JSX.Element) {
+function wrap(ui: React.ReactNode) {
   return render(<HashRouter>{ui}</HashRouter>);
 }
 

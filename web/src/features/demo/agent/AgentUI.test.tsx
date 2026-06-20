@@ -7,7 +7,7 @@ import { AskRovo } from './AskRovo';
 import { Autopilot } from './Autopilot';
 import { RovoRoster } from './RovoRoster';
 
-function wrap(ui: JSX.Element) {
+function wrap(ui: React.ReactNode) {
   return render(<HashRouter>{ui}</HashRouter>);
 }
 
