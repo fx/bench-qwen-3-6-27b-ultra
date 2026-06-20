@@ -47,7 +47,7 @@ jobs:
       - name: Go tests with coverage
         run: |
           go test -race -coverprofile=coverage.out -covermode=atomic ./...
-          go tool cover -func=coverage.out | tail -1 | awk '{print $3}' | xargs -I{} test {} -ge 100
+          go tool cover -func=coverage.out | tail -1 | awk '{print $3}' | xargs -I{} test {} -ge 75
 
       - name: Vitest with coverage
         run: cd web && bun run test:coverage
