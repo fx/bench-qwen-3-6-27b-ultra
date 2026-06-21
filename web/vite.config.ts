@@ -14,6 +14,9 @@ export default defineConfig({
   server: {
     port: 5173,
     strictPort: true,
+    // Allow any Host header (e.g. the workspace's *.ts.net hostname) so the
+    // Go server can proxy cross-origin requests through to Vite in dev.
+    allowedHosts: true,
     hmr: {
       clientPort: Number(port),
     },

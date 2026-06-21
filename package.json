@@ -3,11 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "PORT=${PORT:-8080} concurrently -n vite,go -c blue,magenta \"bun --cwd web run dev\" \"air\"",
-    "build": "bun --cwd web run build",
-    "test": "bun --cwd web run test",
-    "test:run": "bun --cwd web run test:run",
-    "test:coverage": "bun --cwd web run test:coverage"
+    "dev": "PORT=${PORT:-8080} concurrently -n vite,go -c blue,magenta \"bun run --cwd web dev\" \"air\"",
+    "build": "bun run --cwd web build",
+    "test": "bun run --cwd web test",
+    "test:run": "bun run --cwd web test:run",
+    "test:coverage": "bun run --cwd web test:coverage"
   },
   "devDependencies": {
     "concurrently": "^9.1.0"

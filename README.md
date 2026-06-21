@@ -79,6 +79,32 @@ All demo data is mocked in the browser; the "AI" is a deterministic, scripted si
 
 ---
 
+## How this was built
+
+This project was built end-to-end by Claude Code. The figures below are
+reconstructed from the raw session transcripts via the `/analyze-bench-run`
+skill and are **list-price estimates** (they exclude negotiated discounts and
+batch/fast-mode pricing; the bench session that produced this section is itself
+excluded).
+
+| Metric | Value |
+| --- | --- |
+| Estimated cost | **~$71.62** (list price) |
+| Total billed tokens | **104.4M** (98.3% cache reads) |
+| Tokens actually generated (output) | **~507K** |
+| Build wall-clock (main session) | **~2h42m** |
+| Shipped as | PR [#2](https://github.com/fx/bench-qwen-3-6-27b-ultra/pull/2) — +3,651 / −37 across 80 files |
+
+Cache reads dominate token *volume* (~98%) but are cheap, so billed tokens
+(104M) are far larger than the work actually generated (~507K output tokens).
+Regenerate these numbers any time with:
+
+```bash
+python3 .claude/skills/analyze-bench-run/scripts/analyze.py
+```
+
+---
+
 ## Documentation
 
 - [`docs/index.md`](docs/index.md) — index of all specifications and change documents
